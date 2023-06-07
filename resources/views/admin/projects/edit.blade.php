@@ -3,8 +3,9 @@
 @section('content')
     <div class="container mt-5">
         <h1>Edit Project</h1>
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $project['title'] }}">

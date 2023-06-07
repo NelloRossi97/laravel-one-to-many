@@ -2,24 +2,24 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1>Create Project</h1>
+        <h1>Inserisci nuovo progetto</h1>
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="title">Title</label>
+                <label for="title">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title">
             </div>
             <div class="mb-3">
-                <label for="image">Image url</label>
+                <label for="image">URL Immagine</label>
                 <input type="url" class="form-control" name="image" id="image">
 
             </div>
             <div class="mb-3">
-                <label for="body">Body</label>
-                <textarea name="body" id="body" rows="10" class="form-control"></textarea>
+                <label for="description">Descrizione</label>
+                <textarea name="description" id="description" rows="10" class="form-control"></textarea>
 
             </div>
-            <button type="submit" class="btn btn-success">Save</button>
+            <button type="submit" class="btn btn-success">Salva</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>
         <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

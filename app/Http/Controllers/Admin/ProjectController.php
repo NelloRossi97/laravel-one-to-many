@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -71,7 +72,11 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($request->title, '-');
+        $data['slug'] = $slug;
+        $project->update($data);
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', "Il progetto {$project->title} è stato modificato con successo");
     }
 
     /**
