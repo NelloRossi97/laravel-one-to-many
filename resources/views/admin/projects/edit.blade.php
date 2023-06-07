@@ -11,6 +11,18 @@
                 <input type="text" class="form-control" name="title" id="title" value="{{ $project['title'] }}">
             </div>
             <div class="mb-3">
+                <label for="type_id">Tecnologia</label>
+                <select class="form-control" name="type_id" id="type_id">
+                    <option value="">Seleziona tecnologia</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}"
+                            {{ $type->id == old('category_id', $project->type_id) ? 'selected' : '' }}>
+                            {{ $type->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="image">Image url</label>
                 <input type="url" class="form-control" name="image" id="image" value="{{ $project['image'] }}">
 

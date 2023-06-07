@@ -10,6 +10,15 @@
                 <input type="text" class="form-control" name="title" id="title">
             </div>
             <div class="mb-3">
+                <label for="type_id">Tecnologia</label>
+                <select class="form-control" name="type_id" id="type_id">
+                    <option value="">Seleziona tecnologia</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="image">URL Immagine</label>
                 <input type="url" class="form-control" name="image" id="image">
 
@@ -19,6 +28,7 @@
                 <textarea name="description" id="description" rows="10" class="form-control"></textarea>
 
             </div>
+
             <button type="submit" class="btn btn-success">Salva</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>
