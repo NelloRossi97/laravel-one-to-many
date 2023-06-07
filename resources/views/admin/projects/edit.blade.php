@@ -2,12 +2,15 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1>Edit Project</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Modifica Progetto</h1>
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Torna ai progetti</a>
+        </div>
         <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="title">Title</label>
+                <label for="title">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $project['title'] }}">
             </div>
             <div class="mb-3">

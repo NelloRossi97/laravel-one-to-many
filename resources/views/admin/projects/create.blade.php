@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1>Inserisci nuovo progetto</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Inserisci nuovo Progetto</h1>
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Torna ai progetti</a>
+        </div>
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
             <div class="mb-3">
