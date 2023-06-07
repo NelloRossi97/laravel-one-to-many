@@ -14,17 +14,17 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Tecnologia</th>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">Creato il</th>
+                    <th scope="col">Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
-                        <th scope="row">{{ $project->id }}</th>
+                        <th scope="row">{{ $project->type->name }}</th>
                         <td>{{ $project->title }}</td>
                         <td><img class="img-thumbnail" style="width:100px" src="{{ $project->image }}"
                                 alt="{{ $project->title }}">
