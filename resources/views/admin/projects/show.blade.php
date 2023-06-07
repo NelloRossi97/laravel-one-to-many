@@ -1,9 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
-        <h1>{{ $project->title }}</h1>
-        <h3 class="mb-5">{{ $project->description }}</h3>
-        <img src="{{ $project->image }}" alt="{{ $project->title }}" style="width: 80vw">
+    <div class="container py-5">
+        <h1>Titolo del progetto: {{ $project->title }}</h1>
+        <h5 class="mb-5">Descrizione: {{ $project->description }}</h5>
+        <div class="d-flex align-items-center">
+            <span class="fw-bold me-3">Tecnologia utilizzata: </span>
+            <div class="d-flex flex-column align-items-center">
+                <img src="/img/{{ $project->type->image }}" alt="{{ $project->type->name }}" style="width:80px">
+                <span class="fw-bold">{{ $project->type->name }}</span>
+            </div>
+
+            <span class="ms-3">{{ $project->type->description }}</span>
+        </div>
+        <div class="py-5">
+            <h2>Anteprima:</h2>
+            <img src="{{ $project->image }}" alt="{{ $project->title }}" style="width: 100%">
+
+        </div>
     </div>
 @endsection
